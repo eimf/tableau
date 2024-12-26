@@ -5,12 +5,38 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-cormorant: var(--font-cormorant);
+  --font-montserrat: var(--font-montserrat);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+@layer base {
+  body {
+    @apply text-white bg-black font-montserrat;
+  }
+}
+
+@layer components {
+  .heading-xl {
+    @apply font-cormorant text-6xl md:text-7xl lg:text-8xl font-light tracking-tight;
+  }
+  
+  .heading-lg {
+    @apply font-cormorant text-4xl md:text-5xl lg:text-6xl font-light;
+  }
+  
+  .body-text {
+    @apply font-montserrat text-base leading-relaxed;
+  }
+  
+  .gold-gradient {
+    @apply bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 bg-clip-text text-transparent;
   }
 }
 
