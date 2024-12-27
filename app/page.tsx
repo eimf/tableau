@@ -1,21 +1,24 @@
 import Image from "next/image";
 import { ServicesGrid } from "@/components/services/services-grid";
+import { Philosophy } from "@/components/philosophy";
+import { Testimonials } from "@/components/testimonials";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="h-screen">
+      <div className="relative h-[calc(65vh)] md:h-[calc(80vh)] lg:h-[calc(100vh)]">
         <Image
           src="/images/logo.jpg"
           alt="Luxury salon interior"
           fill
-          className="object-cover"
+          className="object-cover w-full h-full"
           priority
           sizes="100vw"
           quality={100}
         />
-      </section>
+      </div>
       <div className="relative">
         {/* Services Section */}
         <section className="py-20 bg-black px-4">
@@ -27,9 +30,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* <Philosophy />
+        <Philosophy />
         <Testimonials />
-        <Footer /> */}
+        <Footer />
       </div>
     </main>
   );

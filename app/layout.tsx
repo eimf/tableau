@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Cormorant_Garamond, Montserrat } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import "./globals.css";
@@ -15,7 +16,7 @@ const montserrat = Montserrat({
   display: 'swap',
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Tableau de Katia',
   description: 'Experience luxury hair care at its finest at Tableau de Katia.',
 };

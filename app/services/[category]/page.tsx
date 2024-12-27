@@ -1,27 +1,17 @@
+'use client';
+
 import { notFound } from 'next/navigation';
 import { serviceCategories } from '@/lib/services/data/categories';
 import { ServiceList } from '@/components/services/service-list';
-import { Metadata } from 'next';
+import { usePathname } from 'next/navigation';
 
-// Update to use the correct Next.js types
-type Props = {
-  params: {
-    category: string;
-  };
-  searchParams: { [key: string]: string | string[] | undefined };
-}
+export default function CategoryPage() {
+  const pathname = usePathname();
 
-export async function generateStaticParams() {
-  return serviceCategories.map((category) => ({
-    category: category.id,
-  }));
-}
-
-export default async function CategoryPage(props: Props) {
-  const categoryData = serviceCategories.find((cat) => cat.id === props.params.category);
+  const categoryData = serviceCategories.find((cat) => cat.id === pathname.split('/').pop());
 
   if (!categoryData) {
-    notFound();
+    return notFound();
   }
 
   return (
@@ -33,13 +23,4 @@ export default async function CategoryPage(props: Props) {
       <ServiceList services={categoryData.services} />
     </div>
   );
-}
-
-export async function generateMetadata(props: Props): Promise<Metadata> {
-  const category = serviceCategories.find((cat) => cat.id === props.params.category);
-  
-  return {
-    title: category ? `${category.name} | Your Salon Name` : 'Category Not Found',
-    description: category?.description || 'Service category page',
-  };
 }

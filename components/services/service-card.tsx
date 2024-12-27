@@ -16,9 +16,9 @@ export function ServiceCard({ title, description, imageUrl, index }: ServiceCard
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       transition={{
-        duration: 0.5,
+        duration: 0.3,
         delay: index * 0.1,
-        ease: [0.43, 0.13, 0.23, 0.96]
+        ease: [0.23, 0.03, 0.13, 0.86]
       }}
       whileHover={{ scale: 1.05 }}
       className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer"
@@ -27,7 +27,11 @@ export function ServiceCard({ title, description, imageUrl, index }: ServiceCard
         src={imageUrl}
         alt={title}
         fill
+        sizes="(max-width: 768px) 100vw, 
+               (max-width: 1200px) 50vw, 
+               33vw"
         className="object-cover transition-transform duration-500 group-hover:scale-110"
+        priority
       />
       <div className="absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-300 group-hover:bg-opacity-60" />
       <div className="absolute inset-0 p-6 flex flex-col justify-end">
