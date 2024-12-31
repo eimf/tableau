@@ -1,17 +1,11 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { Scissors } from "lucide-react";
 import { Button } from "@/components/ui/button";
 // import { useSelector } from 'react-redux';
 // import { RootState } from '@/lib/store';
-import Link from "next/link";
 
 export function NavButtons() {
-  const router = useRouter();
-  // const { user } = useSelector((state: RootState) => state.auth);
-  // const { items } = useSelector((state: RootState) => state.cart);
-  // const itemCount = items.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <>
